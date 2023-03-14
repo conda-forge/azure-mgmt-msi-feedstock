@@ -1,18 +1,18 @@
 {% set name = "azure-mgmt-msi" %}
-{% set version = "0.2.0" %}
+{% set version = "6.1.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
-  sha256: 8622bc9a164169a0113728ebe7fd43a88189708ce6e10d4507247d6907987167
+  sha256: 952f1d6b7025d73d6930b0c17fa66d59cd5415456090dd6aa4a4f1b785577654
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
   host:
