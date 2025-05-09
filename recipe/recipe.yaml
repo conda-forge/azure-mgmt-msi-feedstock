@@ -26,6 +26,7 @@ requirements:
     - azure-common >=1.1,<2
     - msrestazure >=0.4.27,<2.0.0
     - python >=${{ python_min }}
+    - setuptools
 
 tests:
   - python:
