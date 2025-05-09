@@ -9,7 +9,7 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://pypi.io/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.zip
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.zip
   sha256: 8622bc9a164169a0113728ebe7fd43a88189708ce6e10d4507247d6907987167
 
 build:
@@ -20,11 +20,12 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python ${{ python_min }}.*
+    - setuptools
   run:
     - azure-common >=1.1,<2
     - msrestazure >=0.4.27,<2.0.0
-    - python
+    - python >=${{ python_min }}
 
 tests:
   - python:
@@ -35,8 +36,8 @@ tests:
         - azure.mgmt.msi.models
         - azure.mgmt.msi.operations
       pip_check: false
-
       python_version: ${{ python_min }}.*
+
 about:
   license: MIT
   license_file: LICENSE
